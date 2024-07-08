@@ -1,15 +1,15 @@
-import LoginPage from "./Pages/LoginPage/LoginPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 import EmployeeListPage from "./Pages/EmployeeListPage/EmployeeListPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import MainPage from "./Pages/MainPage/MainPage";
+import MainRoute from "./MainRoute";
 import LeaveRequestPage from "./Pages/LeaveRequestPage/LeaveRequestPage";
 import ProjectsPage from "./Pages/ProjectsPage/ProjectsPage";
 import ApprovalRequestsPage from "./Pages/ApprovalRequestPage/ApprovalRequestPage";
 import { AuhtorizationProvider } from "./AuthorizationProvider";
 import AddNewEmployeePage from "./Pages/AddNewEmployeePage/AddNewEmployee";
+import MainPage from "./Pages/MainPage/MainPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,10 +28,11 @@ export default function App() {
             path="/"
             element={
               // <AuhtorizationProvider>
-              <MainPage />
+              <MainRoute />
               // </AuhtorizationProvider>
             }
           >
+            <Route index element={<MainPage />} />
             <Route path="/EmployeeList" element={<EmployeeListPage />} />
             <Route
               path="/EmployeeList/AddNewEmployee"
