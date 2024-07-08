@@ -27,9 +27,9 @@ export default function App() {
           <Route
             path="/"
             element={
-              // <AuhtorizationProvider>
-              <MainRoute />
-              // </AuhtorizationProvider>
+              <AuhtorizationProvider>
+                <MainRoute />
+              </AuhtorizationProvider>
             }
           >
             <Route index element={<MainPage />} />
